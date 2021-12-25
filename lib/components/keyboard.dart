@@ -3,6 +3,9 @@ import 'button_row.dart';
 import 'button.dart';
 
 class Keyboard extends StatelessWidget {
+  final void Function(String) cb;
+  Keyboard(this.cb);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,34 +13,39 @@ class Keyboard extends StatelessWidget {
       child: Column(
         children: <Widget>[
           ButtonRow([
-            Button.big(text: 'AC', big: true),
-            Button(text: '%'),
-            Button.opration(text: '/'),
+            Button.big(text: 'AC', color: Button.DARK, big: true, cb: cb),
+            Button(text: '%', color: Button.DARK, cb: cb),
+            Button.opration(text: '/', cb: cb),
           ]),
+          SizedBox(height: 1),
           ButtonRow([
-            Button(text: '7'),
-            Button(text: '8'),
-            Button(text: '9'),
-            Button.opration(text: 'x'),
+            Button(text: '7', cb: cb),
+            Button(text: '8', cb: cb),
+            Button(text: '9', cb: cb),
+            Button.opration(text: 'x', cb: cb),
           ]),
+          SizedBox(height: 1),
           ButtonRow([
-            Button(text: '4'),
-            Button(text: '5'),
-            Button(text: '6'),
-            Button.opration(text: '-'),
+            Button(text: '4', cb: cb),
+            Button(text: '5', cb: cb),
+            Button(text: '6', cb: cb),
+            Button.opration(text: '-', cb: cb),
           ]),
+          SizedBox(height: 1),
           ButtonRow([
-            Button(text: '1'),
-            Button(text: '2'),
-            Button(text: '3'),
-            Button.opration(text: '+'),
+            Button(text: '1', cb: cb),
+            Button(text: '2', cb: cb),
+            Button(text: '3', cb: cb),
+            Button.opration(text: '+', cb: cb),
           ]),
+          SizedBox(height: 1),
           ButtonRow([
             Button.big(
               text: '0',
+              cb: cb,
             ),
-            Button(text: '.'),
-            Button.opration(text: '='),
+            Button(text: '.', cb: cb),
+            Button.opration(text: '=', cb: cb),
           ]),
         ],
       ),
